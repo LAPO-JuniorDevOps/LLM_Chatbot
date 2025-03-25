@@ -2,7 +2,10 @@
 
 This project details the creation of an LLM AI chatbot 
 
+
+
 Key Contributors/Roles:
+Supervisor: Mr. David
 
 Front End Developer: Shallom and Wealth
 
