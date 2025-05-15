@@ -21,14 +21,14 @@ import numpy as np
 import torch
 
 # === Config ===
-GROQ_API = "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"
-DOCS_FOLDER = r"C:\Users\Jesus_bby\RASA_AI_CHATBOT\actions\company_docs"
+GROQ_API = "ENTER YOUR KEY"
+DOCS_FOLDER = r"PATH TO YOU DOCS FOLDER"
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
-FAQ_PATH = r"C:\Users\Jesus_bby\RASA_AI_CHATBOT\actions\banking_faq_converted.json"
+FAQ_PATH = r"PATH TO YOUR FAQ FOLDER"
 SIMILARITY_THRESHOLD = float(os.getenv("FAQ_MATCH_THRESHOLD", 0.85))
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = "o4-mini"
-LLAMA_API_URL = " http://192.168.8.124:9000/generate"
+LLAMA_API_URL = " LLAMA URL"
 TEXT_SIMILARITY_THRESHOLD = 0.8  # Threshold for determining text similarity
 
 logger = logging.getLogger(__name__)
