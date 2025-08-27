@@ -1,0 +1,171 @@
+// // chatbot toggle code 
+// const chatbotToggle = document.getElementById('chatbotToggle');
+// const chatbot = document.getElementById('chatbot');
+// const sendBtn = document.getElementById('sendBtn');
+// const userInput = document.getElementById('userInput');
+// const chatBody = document.getElementById('chatBody');
+
+// let isChatOpen = false;
+
+// chatbotToggle.addEventListener('click', () => {
+//   isChatOpen = !isChatOpen;
+//   chatbot.style.display = isChatOpen ? 'flex' : 'none';
+
+//   chatbotToggle.innerHTML = isChatOpen
+//     ? `
+//       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+//   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+// </svg>
+// `
+//     : `
+//       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="heroicon">
+//   <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+// </svg>
+
+// `;
+// });
+
+// //  code for chatbot expansion 
+// const expandBtn = document.getElementById('expandBtn');
+// const expandIcon = document.getElementById('expandIcon');
+// const collapseIcon = document.getElementById('collapseIcon');
+
+// expandBtn.addEventListener('click', () => {
+//   chatbot.classList.toggle('expanded');
+
+//   const isExpanded = chatbot.classList.contains('expanded');
+
+//   expandIcon.style.display = isExpanded ? 'none' : 'inline';
+//   collapseIcon.style.display = isExpanded ? 'inline' : 'none';
+// });
+
+
+// //  send message code 
+// sendBtn.addEventListener('click', () => {
+//   const message = userInput.value.trim();
+//   if (message === '') return;
+
+//   // Create user message row
+//   const userRow = document.createElement('div');
+//   userRow.className = 'message-row user';
+
+//   const userMsg = document.createElement('div');
+//   userMsg.className = 'user-message';
+//   userMsg.textContent = message;
+
+//   const userIcon = document.createElement('div');
+//   userIcon.className = 'icon user-icon';
+//   userIcon.textContent = 'U'; // Replace with 👤 or any initial
+
+//   userRow.appendChild(userMsg);
+//   userRow.appendChild(userIcon);
+//   chatBody.appendChild(userRow);
+
+//   // Show typing indicator
+//   const typingRow = document.createElement('div');
+//   typingRow.className = 'message-row';
+
+//   const typingIcon = document.createElement('div');
+//   typingIcon.className = 'icon';
+//   typingIcon.textContent = '🤖';
+
+//   const typingIndicator = document.createElement('div');
+//   typingIndicator.className = 'typing-indicator';
+//   typingIndicator.innerHTML = `
+//   <div class="typing-dot"></div>
+//   <div class="typing-dot"></div>
+//   <div class="typing-dot"></div>
+// `;
+
+//   typingRow.appendChild(typingIcon);
+//   typingRow.appendChild(typingIndicator);
+//   chatBody.appendChild(typingRow);
+//   chatBody.scrollTop = chatBody.scrollHeight;
+
+//   // Replace typing with real bot reply after delay
+//   //setTimeout(() => {
+//   function realResponse() {
+//     // typingRow.remove();
+
+//     const botRow = document.createElement('div');
+//     botRow.className = 'message-row';
+
+//     const botIcon = document.createElement('div');
+//     botIcon.className = 'icon';
+//     botIcon.textContent = '🤖';
+
+//     const botReply = document.createElement('div');
+//     botReply.className = 'bot-message';
+//     getBotReply(botRow, botIcon, typingRow, botReply, message);
+//     // botReply.textContent = getBotReply(message);
+
+//     // typingRow.remove();
+//     // botRow.appendChild(botIcon);
+//     // botRow.appendChild(botReply);
+//     // chatBody.appendChild(botRow);
+//     // chatBody.scrollTop = chatBody.scrollHeight;
+
+//   }//, 1000) // 1 second delay
+
+//   realResponse();
+
+//   userInput.value = '';
+// });
+
+
+
+// // Bot response
+// function getBotReply(botRow, botIcon, typingRow, botReply, message) {
+
+// fetch("/chatbot/send/", {
+//   method: "POST",
+//   headers: { "Content-Type": "application/json" },
+//   body: JSON.stringify({ sender: "user", message: message }),
+// })
+// .then(response => response.json())
+// .then(data => {
+//   // Remove typing indicator
+//   // const typing = document.getElementById("bot-typing");
+//   // if (typing) typing.remove();
+
+
+//   data.forEach(reply => {
+//       // Display bot response on the left
+//       console.log(reply.text);
+//     typingRow.remove();
+//     botReply.textContent = reply.text;
+//     botRow.appendChild(botIcon);
+//     botRow.appendChild(botReply);
+//     chatBody.appendChild(botRow);
+//     chatBody.scrollTop = chatBody.scrollHeight;
+    
+
+//   });
+// })
+// .catch(error => {
+//   console.error("Error:", error)
+//   // const typing = document.getElementById("bot-typing");
+//   // if (typing) typing.remove();
+// });
+
+// }
+
+// /*******  This code is for testing purposes ***********/
+// // Bot response code for testing purpose.
+// // function getBotReply(message) {
+// //   const msg = message.toLowerCase();
+// //   if (msg.includes('loan')) return "LAPO MFB micro loan is small loans for small businesses, with loan size of between ₦30,000- ₦300,000. Micro loans are disbursed in virtually all LAPO MFB branches, using the group methodology after a thorough Pre-loan training to targeted clients.";
+// //   if (msg.includes('saving')) return "We offer savings plan too?";
+// //   if (msg.includes('account')) return "To open an account, visit our nearest branch or our website.";
+// //   if (msg.includes('hello') || msg.includes('hi')) return "Hello! How can I assist you today?";
+// //   return "I'm not sure I understand. Can you please rephrase?";
+// // }
+
+// // Allow Enter key to send message
+// userInput.addEventListener('keypress', (event) => {
+//   if (event.key === 'Enter') {
+//     event.preventDefault(); // Prevent form submission or newline
+//     sendBtn.click();        // Trigger the send button click
+//   }
+// });
+

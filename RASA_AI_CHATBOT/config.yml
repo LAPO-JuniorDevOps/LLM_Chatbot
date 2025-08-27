@@ -1,0 +1,54 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
+recipe: default.v1
+
+# Unique Assistant ID
+assistant_id: 20250326-150449-slim-pouf
+
+# Language Configuration
+language: en
+
+#  Updated NLU Pipeline using spaCy and DIETClassifier
+pipeline:
+  - name: SpacyNLP
+    model: en_core_web_md   # or use en_core_web_lg for higher accuracy
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+    model: "bert"
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 100
+    constrain_similarities: true
+  - name: FallbackClassifier
+    threshold: 0.8
+    ambiguity_threshold: 0.7
+  # - name: "WhitespaceTokenizer"
+  - name: "LanguageModelFeaturizer"
+    model_name: "bert"
+    model_weights: "bert-base-uncased"
+  - name: SpacyEntityExtractor
+    model: "en_core_web_md"  
+  - name: LexicalSyntacticFeaturizer
+  - name: RegexFeaturizer
+
+
+#  Updated Policies Section
+policies:
+  - name: MemoizationPolicy
+  - name: RulePolicy
+  - name: UnexpecTEDIntentPolicy
+    max_history: 5
+    epochs: 100
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true

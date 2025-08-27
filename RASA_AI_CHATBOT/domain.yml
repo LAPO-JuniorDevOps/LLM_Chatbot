@@ -1,0 +1,22 @@
+version: "3.1"
+
+intents:
+  - nlu_fallback
+
+responses:
+  utter_default:
+    - text: "Sorry, I didn't understand that. Let me try to help..."
+
+actions:
+  - action_fallback_llama  # or your custom fallback action name
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+slots:
+  conversation_summary:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom

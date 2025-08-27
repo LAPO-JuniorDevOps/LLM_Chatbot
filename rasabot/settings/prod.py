@@ -1,0 +1,10 @@
+from .base import *
+
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+
+# Extra production safety
+SECURE_HSTS_SECONDS = 31536000
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

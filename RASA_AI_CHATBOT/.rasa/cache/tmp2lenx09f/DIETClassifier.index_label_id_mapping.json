@@ -1,0 +1,17 @@
+{
+  "0": "affirm",
+  "1": "ask_how_are_you",
+  "2": "bot_challenge",
+  "3": "check_bvn",
+  "4": "deny",
+  "5": "goodbye",
+  "6": "greet",
+  "7": "greet_response",
+  "8": "loan_info",
+  "9": "mood_great",
+  "10": "mood_unhappy",
+  "11": "product_info",
+  "12": "savings_info",
+  "13": "thank_you",
+  "14": "you_are_welcome"
+}

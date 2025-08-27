@@ -1,0 +1,74 @@
+{% extends 'front.html' %}
+
+{% load static %}
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lapo Microfinance Chatbot</title> -->
+
+  {% block styles %}
+  <link rel="stylesheet" href="{% static 'stylechat.css' %}" />
+  {% endblock %}
+<!-- </head>
+<body> -->
+
+  {% block mychatbot %}
+  <div class="chatbot-container">
+    <!-- Toggle Button -->
+    <button id="chatbotToggle" class="chatbot-toggle"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"  stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+      </svg>
+    </button>
+
+    <!-- Chatbot Box -->
+    <div id="chatbot" class="chatbot">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="bot-avatar"><img class = 'icon' src="{% static 'img\grey-bot.png' %}"></div>
+          <div class="header-text">
+            <h3>LAPO MFB Chatbot</h3>
+            <p>Online • Replies instantly</p>
+          </div>
+        </div>
+        <button id="expandBtn" class="expand-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="chat-body" id="chatBody">
+        <div class="message-row">
+          <div class="icon"><img class = 'icon' src="{% static 'img\grey-bot.png' %}"></div>
+          <div class="bot-message">
+            Hello, Welcome to LAPO MFB Chatbot, I’m your virtual assistant 🤖. How may I help you?
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-suggestions">
+        <button>Human Agent</button>
+        <button>Sign Out</button>
+        <!-- <button>Start Free Trial</button> -->
+        <button>Chat History</button>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Type your message..." />
+        <button id="sendBtn" class="send-btn"><img src="{% static './img/arrow-up-stroke.png' %}" alt=""></button>
+      </div>
+      <div class="chat-footer">Powered by LAPO MFB AI assistant</div>
+    </div>
+  </div>
+
+  <!-- Include marked.js and DOMPurify.js from CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.6/dist/purify.min.js"></script>
+
+  <script src="{% static 'scriptchat.js' %}"></script>
+  {% endblock %}
+<!-- 
+</body>
+</html> -->

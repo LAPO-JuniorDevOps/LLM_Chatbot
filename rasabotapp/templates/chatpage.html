@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAPO Microfinance Bank ChatBot</title>
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+
+    <!-- Favicon (Optional) -->
+    <link rel="icon" href="{% static 'PIC/logo (1).png' %}" type="image/png">
+</head>
+<body>
+
+    <div class="chat-container">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <h2>Chat with us!</h2>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-box">
+            <div class="messages" id="messages"></div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Type a message..." aria-label="Type a message" />
+            <button onclick="sendMessage()" aria-label="Send message">Send</button>
+        </div>
+    </div>
+
+    <script src="{% static 'script1.js' %}"></script>
+</body>
+</html>

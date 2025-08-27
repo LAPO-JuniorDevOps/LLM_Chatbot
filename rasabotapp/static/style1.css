@@ -1,0 +1,174 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(090-chat-bot/green-ai-background-free-vector.jpg);
+    background-size: cover;
+    backdrop-filter: brightness(0.5);
+    overflow: hidden;
+}
+
+.chat-container {
+    width: 800px;
+    height: 600px;
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("PIC/LAPO_Logo_2022.png");
+    background-size: 42%;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: center;
+    opacity: 0.93;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 95vh;
+}
+.chat-container::after{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 600px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enables scrolling */
+}
+
+/* Optional: Smooth scrolling */
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #efefef;
+    align-self: flex-start;
+}
+
+.message.bot {
+    background-color: #ddd;
+    color: #000;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.input-box {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none;
+}
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #127540;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #094d29;
+}
+
+.user {
+    background: #ee7300;
+    color: white;
+    text-align: right;
+    align-self: flex-end;
+}
+
+.chat-header {
+    padding: 3%;
+    text-align: center;
+    border-bottom: solid #747474 1px;
+    color: #127540;
+}
+
+.bot-typing{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.user-typing{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: right;
+}
+
+.time {
+    display: block;
+    font-size: 0.6em;
+    color: gray;
+    margin-top: 10px;
+}
+
+.bubble.typing {
+    background: #f1f1f1;
+    border-radius: 15px;
+    padding: 10px;
+    width: fit-content;
+    display: flex;
+    gap: 5px;
+    margin: 10px;
+    align-items: center;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #888;
+    border-radius: 50%;
+    animation: blink 1.4s infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
